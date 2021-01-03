@@ -5,9 +5,29 @@
 
     <!-- Fill this string-array "list" with the names for your buttons -->
     <string-array name="soundNames">
-        <item>Dangerzone</item>
-        <item>Airhorn</item>
-        <item>Bing Bong</item>
+        <item>01-Payanca</item>
+        <item>02-Volver</item>
+        <item>03-Vuelvo al sur</item>
+        <item>04-El Cachorrito</item>
+        <item>05-La Punalada</item>
+        <item>06-Catamarca</item>
+        <item>07-La Luz de los faroles</item>
+        <item>08-Chiquilin de Bachin</item>
+        <item>09-El Chamuyo</item>
+        <item>10-El dia que me quieras</item>
+        <item>11-Bulgar</item>
+        <item>12-Rabbi</item>
+        <item>13-Bukovina</item>
+        <item>14-Inlaws-Home</item>
+        <item>15-Sweet Father</item>
+        <item>16-Inlaws-Dance</item>
+        <item>17-Dane</item>
+        <item>18-Kishinev</item>
+        <item>19-Delight</item>
+        <item>20-Sweet</item>
+        <item>21-Wise Man</item>
+        <item>22-Galitsian</item>
+        <item>23-Wedding Song</item>
     </string-array>
 
     <!-- Text/Names for all popupmenu actions -->

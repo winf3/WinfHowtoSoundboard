@@ -33,7 +33,8 @@ public class SoundboardActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     // Declare an ArrayList that you fill with SoundObjects that contain all information needed for a sound button
-    ArrayList<SoundObject> soundList = new ArrayList<>();
+   ArrayList<SoundObject> soundList = new ArrayList<>();
+   // String[] soundList = {"But1","But2","But3","But4","But5","But6","But7","But8","But9","But10","But11","But12"};
 
     // Declare a RecyclerView and its components
     // You can assign the RecyclerView.Adapter right away

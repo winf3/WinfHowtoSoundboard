@@ -2,8 +2,10 @@ package de.codereddev.howtoandroidsoundboard;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -142,7 +144,8 @@ public class EventHandlerClass {
                     if (item.getItemId() == R.id.action_send){
 
                         try{
-
+                            Context context1;
+                            context1 = view.getContext();
                             // Check if the users device Android version is 5.1 or higher
                             // If it is you'll have to use FileProvider to get the sharing function to work properly
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1){
@@ -194,20 +197,23 @@ public class EventHandlerClass {
                             @Override
                             public void onClick(DialogInterface dialog, int which){
 
+                                Context context1;
+                                context1 = view.getContext();
                                 // Decide on the users choice which information will be send to a method that handles the settings for all kinds of system audio
                                 switch (which) {
 
                                     // Ringtone
                                     case 0:
-                                        changeSystemAudio(context, RingtoneManager.TYPE_RINGTONE, file);
+
+                                        changeSystemAudio(context1, RingtoneManager.TYPE_RINGTONE, file);
                                         break;
                                     // Notification
                                     case 1:
-                                        changeSystemAudio(context, RingtoneManager.TYPE_NOTIFICATION, file);
+                                        changeSystemAudio(context1, RingtoneManager.TYPE_NOTIFICATION, file);
                                         break;
                                     // Alarmton
                                     case 2:
-                                        changeSystemAudio(context, RingtoneManager.TYPE_ALARM, file);
+                                        changeSystemAudio(context1, RingtoneManager.TYPE_ALARM, file);
                                         break;
                                     default:
                                 }
@@ -221,13 +227,13 @@ public class EventHandlerClass {
 
                 // Add sound to favorites / Remove sound from favorites
                 if (item.getItemId() == R.id.action_favorite) {
-
-                    DatabaseHandler databaseHandler = DatabaseHandler
-                            .getInstance(context.getApplicationContext());
+                    Context context1;
+                    context1 = view.getContext();
+                    //DatabaseHandler databaseHandler = DatabaseHandler.getInstance(context1.getApplicationContext());
 
                     // Identify the current activity
-                    if (context instanceof FavoriteActivity) {
-                        databaseHandler.removeFavorite(context, soundObject);
+                    if (context1 instanceof FavoriteActivity) {
+                        databaseHandler.removeFavorite(context1, soundObject);
                     } else {
                         databaseHandler.addFavorite(soundObject);
                     }

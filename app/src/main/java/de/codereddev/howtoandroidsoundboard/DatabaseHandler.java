@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -48,6 +49,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.d(LOG_TAG, "Database successfully initialised: " + getDatabaseName());
     }
 
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -55,6 +58,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             // Execute the creation statements
             db.execSQL(SQL_CREATE_MAIN_TABLE);
             db.execSQL(SQL_CREATE_FAVORITES_TABLE);
+            Log.i(LOG_TAG, "Created successfully : " );
 
         } catch(Exception e){
 
@@ -78,11 +82,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         List<String> nameList = Arrays.asList(context.getResources().getStringArray(R.array.soundNames));
 
         // Declare all sound buttons
-        SoundObject[] soundItems = {new SoundObject(nameList.get(0), R.raw.audio01), new SoundObject(nameList.get(1), R.raw.audio02), new SoundObject(nameList.get(2), R.raw.audio03)};
+        SoundObject[] soundItems = {
+                new SoundObject(nameList.get(0), R.raw.audio01),
+                new SoundObject(nameList.get(1), R.raw.audio02),
+                new SoundObject(nameList.get(2), R.raw.audio03),
+                new SoundObject(nameList.get(3), R.raw.audio04),
+                new SoundObject(nameList.get(4), R.raw.audio05),
+                new SoundObject(nameList.get(5), R.raw.audio06),
+                new SoundObject(nameList.get(6), R.raw.audio07),
+                new SoundObject(nameList.get(7), R.raw.audio08),
+                new SoundObject(nameList.get(8), R.raw.audio09),
+                new SoundObject(nameList.get(9), R.raw.audio10),
+                new SoundObject(nameList.get(10), R.raw.audio11),
+                new SoundObject(nameList.get(11), R.raw.audio12),
+                new SoundObject(nameList.get(12), R.raw.audio13),
+                new SoundObject(nameList.get(13), R.raw.audio14),
+                new SoundObject(nameList.get(14), R.raw.audio15),
+                new SoundObject(nameList.get(15), R.raw.audio16),
+                new SoundObject(nameList.get(16), R.raw.audio17),
+                new SoundObject(nameList.get(17), R.raw.audio18),
+                new SoundObject(nameList.get(18), R.raw.audio19),
+                new SoundObject(nameList.get(19), R.raw.audio20),
+                new SoundObject(nameList.get(20), R.raw.audio21),
+                new SoundObject(nameList.get(21), R.raw.audio22),
+                new SoundObject(nameList.get(22), R.raw.audio23)
+
+        }; // mehr Buttons
 
         // Call putIntoMain() for each SoundObject in soundItems to fill the MAIN_TABLE with all necessary information
+        String LOG_TAG = "MyDatabaseTest";
         for (SoundObject i: soundItems){
             putIntoMain(i);
+            Log.i(LOG_TAG, "createSoundCollection = " + i );
+            
         }
     }
 
@@ -118,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Add sounds to MAIN_TABLE
-    private void putIntoMain(SoundObject soundObject){
+    private void putIntoMain(@NonNull SoundObject soundObject){
 
         // Get a writable instance of the database
         SQLiteDatabase database = this.getWritableDatabase();
@@ -163,7 +195,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
 
         // Check if the soundId allready exists in the table then add it to the table if it does not exist
-        if (!verification(database, FAVORITES_TABLE, FAVORITES_ITEM_ID, soundObject.getItemID()) ) {
+        if (true) { // (!verification(database, FAVORITES_TABLE, FAVORITES_ITEM_ID, soundObject.getItemID()) ) {
 
             try{
 

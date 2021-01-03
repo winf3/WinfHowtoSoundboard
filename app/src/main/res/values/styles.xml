@@ -10,6 +10,7 @@
     </style>
 
     <!-- Design values for the toolbar/actionbar -->
+
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
